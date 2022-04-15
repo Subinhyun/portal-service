@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="kr.ac.jejunu.LombokTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-04-15T09:29:57" hostname="hsooovnkui-MacBookAir.local" time="0.035">
+  <properties/>
+  <testcase name="test()" classname="kr.ac.jejunu.LombokTests" time="0.035"/>
+  <system-out><![CDATA[User(id=1, name=hulk, password=1234)
+User(id=1, name=hulk, password=1234)
+true
+true
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
