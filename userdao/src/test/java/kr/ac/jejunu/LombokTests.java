@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 public class LombokTests {
     @Test
     public void test() {
-        User user1 = User.buil
-        der().id(1).name("hulk").password("1234").build();
+        User user1 = User.builder().id(1).name("hulk").password("1234").build();
         User user2 = new User();
         user1.setId(1);
         user1.setName("hulk");
