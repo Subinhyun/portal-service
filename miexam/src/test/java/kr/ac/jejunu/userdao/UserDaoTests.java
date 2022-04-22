@@ -16,7 +16,9 @@ public class UserDaoTests {
 
     @Test
     public void testGet() throws SQLException, ClassNotFoundException {
-        UserDao userDao = new JejuConnection();
+
+        DaoFactory daoFactory = new DaoFactory();
+        UserDao userDao = daoFactory.getUserDao();
         User user = userDao.get(id);
         assertThat(user.getId(), is(id));
         assertThat(user.getName(), is(name));
@@ -28,7 +30,8 @@ public class UserDaoTests {
         User user = new User();
         user.setName(name);
         user.setPassword(password);
-        UserDao userDao = new JejuConnection();
+        DaoFactory daoFactory = new DaoFactory();
+        UserDao userDao = daoFactory.getUserDao();
         userDao.insert(user);
         assertThat(user.getId(), greaterThan(0));
         User insertedUser = userDao.get(user.getId());
@@ -38,7 +41,8 @@ public class UserDaoTests {
 
     @Test
     public void HallaGet() throws SQLException, ClassNotFoundException {
-        UserDao userDao = new HallaConnection();
+        DaoFactory daoFactory = new DaoFactory();
+        UserDao userDao = daoFactory.getUserDao();
         User user = userDao.get(id);
         assertThat(user.getId(), is(id));
         assertThat(user.getName(), is(name));
@@ -50,7 +54,8 @@ public class UserDaoTests {
         User user = new User();
         user.setName(name);
         user.setPassword(password);
-        UserDao userDao = new HallaConnection();
+        DaoFactory daoFactory = new DaoFactory();
+        UserDao userDao = daoFactory.getUserDao();
         userDao.insert(user);
         assertThat(user.getId(), greaterThan(0));
         User insertedUser = userDao.get(user.getId());
