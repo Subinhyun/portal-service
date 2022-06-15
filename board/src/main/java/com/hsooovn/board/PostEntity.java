@@ -2,12 +2,14 @@ package com.hsooovn.board;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
 @Entity
 @Setter
 @Getter
+@ToString
 @Table(name = "post")
 public class PostEntity {
     @Id
@@ -17,7 +19,4 @@ public class PostEntity {
     private String title;
     private String content;
     private String writer;
-
-    public void createPost(PostEntity post) {
-    }
 }
