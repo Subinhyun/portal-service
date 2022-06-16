@@ -44,4 +44,12 @@ public class PostService {
         }
         return postDtoList;
     }
+
+    public void updatePost(int id, PostDto postDto){
+        this.postDao.updatePost(id, postDto);
+    }
+
+    public void deletePost(int id){
+        this.postDao.deletePost(id);
+    }
 }

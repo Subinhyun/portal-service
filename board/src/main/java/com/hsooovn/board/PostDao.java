@@ -35,4 +35,25 @@ public class PostDao {
     public Iterator<PostEntity> readPostAll(){
         return this.postRepository.findAll().iterator();
     }
+
+    public void updatePost(int id, PostDto postDto){
+        Optional<PostEntity> targetEntity = this.postRepository.findById(Long.valueOf(id));
+        if(targetEntity.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        PostEntity postEntity = targetEntity.get();
+        postEntity.setTitle(
+                postDto.getTitle() == null ? postEntity.getTitle() : postDto.getTitle());
+        postEntity.setContent(
+                postDto.getContent() == null ? postEntity.getContent() : postDto.getContent());
+        this.postRepository.save(postEntity);
+    }
+
+    public void deletePost(int id){
+        Optional<PostEntity> targetEntity = this.postRepository.findById((long) id);
+        if(targetEntity.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        this.postRepository.delete(targetEntity.get());
+    }
 }

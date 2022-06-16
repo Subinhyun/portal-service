@@ -1,5 +1,6 @@
 package com.hsooovn.board;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -10,6 +11,7 @@ import javax.validation.constraints.NotNull;
 @Setter
 @Getter
 @ToString
+@AllArgsConstructor
 public class PostDto {
     private int id;
 
@@ -22,6 +24,6 @@ public class PostDto {
 
     private String writer;
 
-    public PostDto(int i, String title, String content, String writer) {
-    }
+//    public PostDto(int i, String title, String content, String writer) {
+//    }
 }

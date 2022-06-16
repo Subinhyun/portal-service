@@ -16,7 +16,7 @@ public class PostController {
         this.postService = postService;
     }
 
-    @PostMapping("")
+    @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public void createPost(
             @Valid @RequestBody PostDto postDto
@@ -34,5 +34,22 @@ public class PostController {
     @GetMapping("")
     public List<PostDto> readPostAll(){
         return this.postService.readPostAll();
+    }
+
+    @PutMapping("{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void updatePost(
+            @PathVariable("id") int id,
+            @RequestBody PostDto postDto
+    ){
+        this.postService.updatePost(id, postDto);
+    }
+
+    @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void deletePost(
+            @PathVariable("id") int id
+    ){
+        this.postService.deletePost(id);
     }
 }
