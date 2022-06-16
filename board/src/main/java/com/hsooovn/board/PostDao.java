@@ -12,5 +12,10 @@ public class PostDao {
     }
 
     public void createPost(PostDto postDto) {
+        PostEntity postEntity = new PostEntity();
+        postEntity.setTitle(postDto.getTitle());
+        postEntity.setContent(postDto.getContent());
+        postEntity.setWriter(postDto.getWriter());
+        this.postRepository.save(postEntity);
     }
 }
