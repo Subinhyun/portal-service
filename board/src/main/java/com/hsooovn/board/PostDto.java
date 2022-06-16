@@ -6,7 +6,6 @@ import lombok.ToString;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Setter
 @Getter
@@ -22,4 +21,7 @@ public class PostDto {
     private String content;
 
     private String writer;
+
+    public PostDto(int i, String title, String content, String writer) {
+    }
 }

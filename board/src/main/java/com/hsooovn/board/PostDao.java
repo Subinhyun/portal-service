@@ -1,7 +1,12 @@
 package com.hsooovn.board;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.Iterator;
+import java.util.Optional;
 
 @Repository
 public class PostDao {
@@ -17,5 +22,17 @@ public class PostDao {
         postEntity.setContent(postDto.getContent());
         postEntity.setWriter(postDto.getWriter());
         this.postRepository.save(postEntity);
+    }
+
+    public PostEntity readPost(int id){
+        Optional<PostEntity> postEntity = this.postRepository.findById((long) id);
+        if(postEntity.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        return postEntity.get();
+    }
+
+    public Iterator<PostEntity> readPostAll(){
+        return this.postRepository.findAll().iterator();
     }
 }
